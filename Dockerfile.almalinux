@@ -1,0 +1,15 @@
+FROM almalinux:latest
+RUN yum install java -y
+RUN mkdir /opt/tomcat
+WORKDIR /opt/tomcat
+ADD https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.104/bin/apache-tomcat-9.0.104.tar.gz .
+RUN tar -xvzf apache-tomcat-9.0.104.tar.gz
+RUN mv apache-tomcat-9.0.104/* . && \
+    rm -rf apache-tomcat-9.0.104 && \
+    chmod +x /opt/tomcat/bin/*.sh
+# Set environment variables
+ENV CATALINA_HOME=/opt/tomcat
+ENV PATH=$CATALINA_HOME/bin:$PATH
+#
+EXPOSE 8080
+CMD ["catalina.sh", "run"]
