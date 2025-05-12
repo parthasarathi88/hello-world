@@ -4,89 +4,9 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
                              http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
-
-    <!-- Application display name -->
-    <display-name>My Web Application</display-name>
-    
-    <!-- Context parameters -->
-    <context-param>
-        <param-name>appName</param-name>
-        <param-value>MyWebApp</param-value>
-    </context-param>
-    
-    <!-- Session configuration -->
-    <session-config>
-        <session-timeout>30</session-timeout> <!-- 30 minutes -->
-        <cookie-config>
-            <http-only>true</http-only>
-            <secure>true</secure>
-        </cookie-config>
-    </session-config>
-    
-    <!-- Servlet definitions -->
-    <servlet>
-        <servlet-name>MainServlet</servlet-name>
-        <servlet-class>com.example.web.MainServlet</servlet-class>
-        <init-param>
-            <param-name>debug</param-name>
-            <param-value>false</param-value>
-        </init-param>
-        <load-on-startup>1</load-on-startup>
-    </servlet>
-    
-    <!-- Servlet mappings -->
-    <servlet-mapping>
-        <servlet-name>MainServlet</servlet-name>
-        <url-pattern>/main</url-pattern>
-    </servlet-mapping>
-    
-    <!-- Welcome file list -->
+    <display-name>My Stylish WebApp</display-name>
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
-    
-    <!-- Error pages -->
-    <error-page>
-        <error-code>404</error-code>
-        <location>/error/404.html</location>
-    </error-page>
-    <error-page>
-        <error-code>500</error-code>
-        <location>/error/500.html</location>
-    </error-page>
-    
-    <!-- Security constraints -->
-    <security-constraint>
-        <web-resource-collection>
-            <web-resource-name>Protected Area</web-resource-name>
-            <url-pattern>/admin/*</url-pattern>
-        </web-resource-collection>
-        <auth-constraint>
-            <role-name>admin</role-name>
-        </auth-constraint>
-    </security-constraint>
-    
-    <!-- Login configuration -->
-    <login-config>
-        <auth-method>FORM</auth-method>
-        <form-login-config>
-            <form-login-page>/login.html</form-login-page>
-            <form-error-page>/login-error.html</form-error-page>
-        </form-login-config>
-    </login-config>
-    
-    <!-- MIME type mappings -->
-    <mime-mapping>
-        <extension>json</extension>
-        <mime-type>application/json</mime-type>
-    </mime-mapping>
-    
-    <!-- JSP configuration -->
-    <jsp-config>
-        <taglib>
-            <taglib-uri>http://example.com/tags</taglib-uri>
-            <taglib-location>/WEB-INF/tlds/mytags.tld</taglib-location>
-        </taglib>
-    </jsp-config>
 </web-app>
